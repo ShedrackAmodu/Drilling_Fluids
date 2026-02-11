@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Report Templates</title>
+</head>
+<body>
+  <h1>Report Templates</h1>
+  <ul>
+    {% for template in templates %}
+      <li>
+        {{ template.name }}
+        <a href="{% url 'generate_report' template.id %}">Generate</a>
+      </li>
+    {% empty %}
+      <p>No templates available.</p>
+    {% endfor %}
+  </ul>
+</body>
+</html>

@@ -1,0 +1,10 @@
+Django>=5.2
+pandas
+numpy
+plotly
+openpyxl
+reportlab
+xlsxwriter
+celery>=5.3
+redis>=4.0
+pillow

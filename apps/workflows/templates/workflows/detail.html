@@ -1,0 +1,7 @@
+<h1>{{ workflow.name }}</h1>
+<p>{{ workflow.description }}</p>
+<div id="nodes">
+  {% for node in workflow.nodes.all %}
+    <div class="node">{{ node.node_type }} - {{ node.id }}</div>
+  {% endfor %}
+</div>

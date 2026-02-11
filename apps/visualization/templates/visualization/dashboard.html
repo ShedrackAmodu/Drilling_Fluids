@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ dashboard.name }}</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1>{{ dashboard.name }}</h1>
+  <div id="widgets">
+    {% for w in widgets %}
+      <div class="widget" id="widget-{{ w.id }}">
+        <h3>{{ w.title }}</h3>
+        <div id="chart-{{ w.id }}"></div>
+        <script>
+          fetch("{% url 'widget_data' w.id %}")
+            .then(r => r.json())
+            .then(payload => {
+              Plotly.newPlot('chart-{{ w.id }}', payload.data, payload.layout || {});
+            });
+        </script>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

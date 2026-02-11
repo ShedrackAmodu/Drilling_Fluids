@@ -1,0 +1,6 @@
+<h1>Workflows</h1>
+<ul>
+{% for wf in workflows %}
+  <li><a href="{% url 'workflow_detail' wf.id %}">{{ wf.name }}</a></li>
+{% endfor %}
+</ul>
